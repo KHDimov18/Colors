@@ -28,5 +28,17 @@ namespace ExtractColors
                 pictureBox1.Load(openFileDialog1.FileName);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Bitmap img = new Bitmap(pictureBox1.Image);
+                for(int i=0;i<Width;i++)
+            {
+                for(int j=0;j<Height;j++)
+                {
+                    Color colorOfPixel = img.GetPixel(i, j);
+                }
+            }
+        }
     }
 }
