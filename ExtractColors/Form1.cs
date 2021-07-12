@@ -30,6 +30,15 @@ namespace ExtractColors
         {
             this.Hide();
             Form2 frm2 = new Form2(pictureBox1.Image);
+            Bitmap img = new Bitmap(pictureBox1.Image);
+            Color[,] arrayOfColors = new Color[Width, Height];
+            for (int i = 0; i < Width; i++)
+            {
+                for (int j = 0; j < Height; j++)
+                {
+                    arrayOfColors[i, j] = img.GetPixel(i, j);
+                }
+            }
             frm2.Show();
         }
 
