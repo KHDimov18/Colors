@@ -10,13 +10,14 @@ using System.Windows.Forms;
 
 namespace ExtractColors
 {
-    public partial class Form1 : Form
+    public partial class Form2 : Form
     {
-        public Form1(Image pic1)
+        public Form2(Image pic1)
         {
             InitializeComponent();
             pictureBox1.Image = pic1;
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             openFileDialog1.Filter = "jpg files(*.jpg)|*.jpg|PNG files(*.png)|*.png All files(*.*)|*.*|";
@@ -24,16 +25,32 @@ namespace ExtractColors
             {
                 pictureBox1.Load(openFileDialog1.FileName);
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
             this.Hide();
-            Form2 frm2 = new Form2(pictureBox1.Image);
-            frm2.Show();
+            Form1 frm1 = new Form1(pictureBox1.Image);
+            frm1.Show();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
