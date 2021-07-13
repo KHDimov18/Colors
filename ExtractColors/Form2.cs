@@ -150,11 +150,7 @@ namespace ExtractColors
 
         private void button1_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "jpg files(*.jpg)|*.jpg|PNG files(*.png)|*.png All files(*.*)|*.*|";
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox1.Load(openFileDialog1.FileName);
-            }
+            
             this.Hide();
             Form1 frm1 = new Form1(pictureBox1.Image);
             frm1.Show();
