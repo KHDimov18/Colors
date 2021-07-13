@@ -117,6 +117,9 @@ namespace ExtractColors
                 }
             }
 
+            label1.BackColor = Color.FromArgb(redColor, greenColor, blueColor);
+            label1.ForeColor = Color.FromArgb(redColor, greenColor, blueColor);
+
             for (int i = 0; i < br; i++)
             {
                 if (lastGreenElement == gOfThePixel[i])
@@ -128,6 +131,9 @@ namespace ExtractColors
                 }
             }
 
+            label2.BackColor = Color.FromArgb(redColor, greenColor, blueColor);
+            label2.ForeColor = Color.FromArgb(redColor, greenColor, blueColor);
+
             for (int i = 0; i < br; i++)
             {
                 if (lastBlueElement == bOfThePixel[i])
@@ -138,6 +144,8 @@ namespace ExtractColors
                     break;
                 }
             }
+            label3.BackColor = Color.FromArgb(redColor, greenColor, blueColor);
+            label3.ForeColor = Color.FromArgb(redColor, greenColor, blueColor);
         }
 
         private void button1_Click(object sender, EventArgs e)
