@@ -52,7 +52,7 @@ namespace ExtractColors
                 for (int j = 0; j < height; j++)
                 {
                     p = img.GetPixel(i, j);
-                    if (p.R < 250 && p.G < 250 && p.B < 250)
+                    if ((p.R < 250 && (p.G < 200 || p.B < 200)) || (p.R < 200 && (p.G < 250 || p.B < 200)) || (p.R < 200 && (p.G < 200 || p.B < 250)))
                     {
                         sortArrayForROfThePixel[br] = p.R;
                         sortArrayForGOfThePixel[br] = p.G;
