@@ -79,27 +79,6 @@ namespace ExtractColors
                         bOfThePixel[br] = p.B;
                     }
 
-                    int lastRedElement = sortArrayForROfThePixel[br];
-                    int lastGreenElement = sortArrayForGOfThePixel[br];
-                    int lastBlueElement = sortArrayForBOfThePixel[br];
-
-                    for (int x = 0; x < br; x++)
-                    {
-                        if (lastRedElement == lastGreenElement)
-                        {
-                            lastRedElement = sortArrayForROfThePixel[br - 1];
-                        }
-
-                        if (lastBlueElement == lastGreenElement)
-                        {
-                            lastGreenElement = sortArrayForGOfThePixel[br - 1];
-                        }
-
-                        if (lastRedElement == lastBlueElement)
-                        {
-                            lastBlueElement = sortArrayForBOfThePixel[br - 1];
-                        }
-                    }
 
 
                     br++;
@@ -112,6 +91,67 @@ namespace ExtractColors
             Array.Sort(sortArrayForBOfThePixel);
 
 
+            int lastRedElement = sortArrayForROfThePixel[br];
+            int lastGreenElement = sortArrayForGOfThePixel[br];
+            int lastBlueElement = sortArrayForBOfThePixel[br];
+
+            for (int i = 0; i < br; i++)
+            {
+                if (lastRedElement == lastGreenElement)
+                {
+                    lastRedElement = sortArrayForROfThePixel[br - 1];
+                }
+
+                if (lastBlueElement == lastGreenElement)
+                {
+                    lastGreenElement = sortArrayForGOfThePixel[br - 1];
+                }
+
+                if (lastRedElement == lastBlueElement)
+                {
+                    lastBlueElement = sortArrayForBOfThePixel[br - 1];
+                }
+            }
+
+
+
+            var redColor = 0;
+            var greenColor = 0;
+            var blueColor = 0;
+
+
+            for (int i = 0; i < br; i++)
+            {
+                if (lastRedElement == rOfThePixel[i])
+                {
+                    redColor = rOfThePixel[i];
+                    greenColor = gOfThePixel[i];
+                    blueColor = bOfThePixel[i];
+                    break;
+                }
+            }
+
+            for (int i = 0; i < br; i++)
+            {
+                if (lastGreenElement == gOfThePixel[i])
+                {
+                    redColor = rOfThePixel[i];
+                    greenColor = gOfThePixel[i];
+                    blueColor = bOfThePixel[i];
+                    break;
+                }
+            }
+
+            for (int i = 0; i < br; i++)
+            {
+                if (lastBlueElement == bOfThePixel[i])
+                {
+                    redColor = rOfThePixel[i];
+                    greenColor = gOfThePixel[i];
+                    blueColor = bOfThePixel[i];
+                    break;
+                }
+            }
             //frm2.Show();
         }
 
