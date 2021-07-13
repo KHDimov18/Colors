@@ -84,6 +84,13 @@ namespace ExtractColors
                     br++;
                 }
             }
+
+
+            Array.Sort(sortArrayForROfThePixel);
+            Array.Sort(sortArrayForGOfThePixel);
+            Array.Sort(sortArrayForBOfThePixel);
+
+
             //frm2.Show();
         }
 
