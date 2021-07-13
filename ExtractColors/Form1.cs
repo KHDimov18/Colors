@@ -28,18 +28,63 @@ namespace ExtractColors
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Form2 frm2 = new Form2(pictureBox1.Image);
+
+
+
             Bitmap img = new Bitmap(pictureBox1.Image);
-            Color[,] arrayOfColors = new Color[Width, Height];
-            for (int i = 0; i < Width; i++)
+
+
+
+            int width = img.Width;
+            int height = img.Height;
+
+
+
+            int br = 0;
+            Color p;
+
+
+
+            int[] rOfThePixel = new int[width * height + 1];
+            int[] gOfThePixel = new int[width * height + 1];
+            int[] bOfThePixel = new int[width * height + 1];
+
+
+
+
+            int[] sortArrayForROfThePixel = new int[width * height + 1];
+            int[] sortArrayForGOfThePixel = new int[width * height + 1];
+            int[] sortArrayForBOfThePixel = new int[width * height + 1];
+
+
+
+
+            for (int i = 0; i < width; i++)
             {
-                for (int j = 0; j < Height; j++)
+                for (int j = 0; j < height; j++)
                 {
-                    arrayOfColors[i, j] = img.GetPixel(i, j);
+                    p = img.GetPixel(i, j);
+                    if (p.R < 250 && p.G < 250 && p.B < 250)
+                    {
+                        sortArrayForROfThePixel[br] = p.R;
+                        sortArrayForGOfThePixel[br] = p.G;
+                        sortArrayForBOfThePixel[br] = p.B;
+
+
+
+                        rOfThePixel[br] = p.R;
+                        gOfThePixel[br] = p.G;
+                        bOfThePixel[br] = p.B;
+                    }
+
+
+
+                    br++;
                 }
             }
-            frm2.Show();
+            //frm2.Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)
