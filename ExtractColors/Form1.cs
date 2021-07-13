@@ -79,6 +79,27 @@ namespace ExtractColors
                         bOfThePixel[br] = p.B;
                     }
 
+                    int lastRedElement = sortArrayForROfThePixel[br];
+                    int lastGreenElement = sortArrayForGOfThePixel[br];
+                    int lastBlueElement = sortArrayForBOfThePixel[br];
+
+                    for (int x = 0; x < br; x++)
+                    {
+                        if (lastRedElement == lastGreenElement)
+                        {
+                            lastRedElement = sortArrayForROfThePixel[br - 1];
+                        }
+
+                        if (lastBlueElement == lastGreenElement)
+                        {
+                            lastGreenElement = sortArrayForGOfThePixel[br - 1];
+                        }
+
+                        if (lastRedElement == lastBlueElement)
+                        {
+                            lastBlueElement = sortArrayForBOfThePixel[br - 1];
+                        }
+                    }
 
 
                     br++;
