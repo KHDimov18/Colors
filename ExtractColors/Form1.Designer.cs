@@ -79,6 +79,7 @@ namespace ExtractColors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(891, 493);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
