@@ -137,6 +137,38 @@ namespace ExtractColors
             }
 
 
+
+            List<Color> secondColors = orderedGroups.First();
+
+            int secondArgR = 0;
+            int secondSumR = 0;
+            foreach (Color color in secondColors)
+            {
+                secondSumR += color.R;
+            }
+            secondArgR = secondSumR / secondColors.Count();
+
+
+            int secondArgG = 0;
+            int secondSumG = 0;
+            foreach (Color color in secondColors)
+            {
+                secondSumG += color.G;
+            }
+            secondArgG = secondSumG / secondColors.Count();
+
+
+            int secondArgB = 0;
+            int secondSumB = 0;
+            foreach (Color color in secondColors)
+            {
+                secondSumB += color.B;
+            }
+            secondArgB = secondSumB / secondColors.Count();
+
+
+            pictureBox4.BackColor = Color.FromArgb(secondArgR, secondArgG, secondArgB);
+
         }
     
 
