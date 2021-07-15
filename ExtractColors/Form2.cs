@@ -44,7 +44,37 @@ namespace ExtractColors
             float avgSaturation = allImageColors.Average(x => x.GetSaturation());
 
             List<Color> filteredColors = allImageColors.Where(x => x.GetSaturation() > avgSaturation).ToList();
+
+
+
+            List<List<Color>> groups = new List<List<Color>>();
+
+            foreach (Color pixel in filteredColors)
+            {
+                List<Color> group = new List<Color>();
+                group.Add(pixel);
+
+                List<Color> similarColors = filteredColors.Where(newPixel => checking(pixel, newPixel)).ToList();
+                group.AddRange(similarColors);
+
+                groups.Add(group);
+
+            }
+
+
+
         }
+
+
+        private static bool checking(Color pixel, Color newPixel)
+        {
+            if ((10 < (pixel.R - newPixel.R) && 10 < (pixel.G + newPixel.G) && 10 < (pixel.B + newPixel.B)) || (10 < (newPixel.R - pixel.R) && 10 < (newPixel.G - pixel.G) && 10 < (newPixel.B - pixel.B)))
+            {
+                return true;
+            }
+            return false;
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
