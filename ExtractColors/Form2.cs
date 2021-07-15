@@ -97,7 +97,48 @@ namespace ExtractColors
             pictureBox2.BackColor = Color.FromArgb(primeArgR, primeArgG, primeArgB);
 
 
+            
+            int[] oldRGB = new int[3];
+            oldRGB[0] = primeArgR;
+            oldRGB[1] = primeArgG;
+            oldRGB[2] = primeArgB;
+
+
+            int[] newRGB = new int[3];
+
+            int counter = 0;
+            for (int x = 0; x < 3; x++)
+            {
+                newRGB[x] = 255 - oldRGB[x];
+                if ((newRGB[x] - oldRGB[x] < 10 && newRGB[x] - oldRGB[x] > 0) || (oldRGB[x] - newRGB[x] < 10 && oldRGB[x] - newRGB[x] > 0))
+                {
+                    if (oldRGB[x] <= 128)
+                    {
+                        counter++;
+                    }
+                    else
+                    {
+                        counter--;
+                    }
+                }
+            }
+            if (counter == 3)
+            {
+                pictureBox3.BackColor = Color.FromArgb(250, 250, 250);
+            }
+            else if (counter == -3)
+            {
+                pictureBox3.BackColor = Color.FromArgb(5, 5, 5);
+            }
+            else
+            {
+                
+                pictureBox3.BackColor = Color.FromArgb(newRGB[0], newRGB[1], newRGB[2]);
+            }
+
+
         }
+    
 
 
         private static bool checking(Color pixel, Color newPixel)
