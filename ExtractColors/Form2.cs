@@ -51,13 +51,7 @@ namespace ExtractColors
 
             foreach (Color pixel in filteredColors)
             {
-                List<Color> group = new List<Color>();
-                group.Add(pixel);
-
-                List<Color> similarColors = filteredColors.Where(newPixel => checking(pixel, newPixel)).ToList();
-                group.AddRange(similarColors);
-
-                groups.Add(group);
+                groupColors(pixel, groups, filteredColors);
 
             }
 
@@ -93,11 +87,11 @@ namespace ExtractColors
 
             Color prime = Color.FromArgb(primeArgR, primeArgG, primeArgB);
 
-            
+
             pictureBox2.BackColor = Color.FromArgb(primeArgR, primeArgG, primeArgB);
 
 
-            
+
             int[] oldRGB = new int[3];
             oldRGB[0] = primeArgR;
             oldRGB[1] = primeArgG;
@@ -132,46 +126,27 @@ namespace ExtractColors
             }
             else
             {
-                
+
                 pictureBox3.BackColor = Color.FromArgb(newRGB[0], newRGB[1], newRGB[2]);
             }
 
 
-
-            List<Color> secondColors = orderedGroups.First();
-
-            int secondArgR = 0;
-            int secondSumR = 0;
-            foreach (Color color in secondColors)
-            {
-                secondSumR += color.R;
-            }
-            secondArgR = secondSumR / secondColors.Count();
-
-
-            int secondArgG = 0;
-            int secondSumG = 0;
-            foreach (Color color in secondColors)
-            {
-                secondSumG += color.G;
-            }
-            secondArgG = secondSumG / secondColors.Count();
-
-
-            int secondArgB = 0;
-            int secondSumB = 0;
-            foreach (Color color in secondColors)
-            {
-                secondSumB += color.B;
-            }
-            secondArgB = secondSumB / secondColors.Count();
-
-
-            pictureBox4.BackColor = Color.FromArgb(secondArgR, secondArgG, secondArgB);
+            
 
         }
-    
+            
 
+
+        private static void groupColors(Color pixel, List<List<Color>> groups, List<Color> filteredColors)
+        {
+            List<Color> group = new List<Color>();
+            group.Add(pixel);
+
+            // List<Color> similarColors = filteredColors.Where(newPixel => checking(pixel, newPixel)).ToList();
+            // group.AddRange(similarColors);
+
+            groups.Add(group);
+        }
 
         private static bool checking(Color pixel, Color newPixel)
         {
