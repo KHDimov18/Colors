@@ -57,33 +57,33 @@ namespace ExtractColors
 
             IOrderedEnumerable<List<Color>> orderedGroups = groups.OrderBy(x => x.Count);
 
-
+            List<Color> pimeColors = orderedGroups.First();
 
             int primeArgR = 0;
             int primeSumR = 0;
-            foreach (Color color in filteredColors)
+            foreach (Color color in pimeColors)
             {
                 primeSumR += color.R;
             }
-            primeArgR = primeSumR / filteredColors.Count();
+            primeArgR = primeSumR / pimeColors.Count();
 
 
             int primeArgG = 0;
             int primeSumG = 0;
-            foreach (Color color in filteredColors)
+            foreach (Color color in pimeColors)
             {
                 primeSumG += color.G;
             }
-            primeArgG = primeSumG / filteredColors.Count();
+            primeArgG = primeSumG / pimeColors.Count();
 
 
             int primeArgB = 0;
             int primeSumB = 0;
-            foreach (Color color in filteredColors)
+            foreach (Color color in pimeColors)
             {
                 primeSumB += color.B;
             }
-            primeArgB = primeSumB / filteredColors.Count();
+            primeArgB = primeSumB / pimeColors.Count();
 
             Color prime = Color.FromArgb(primeArgR, primeArgG, primeArgB);
 
@@ -101,6 +101,9 @@ namespace ExtractColors
             int[] newRGB = new int[3];
 
             int counter = 0;
+            
+
+
             for (int x = 0; x < 3; x++)
             {
                 newRGB[x] = 255 - oldRGB[x];
@@ -129,9 +132,8 @@ namespace ExtractColors
 
                 pictureBox3.BackColor = Color.FromArgb(newRGB[0], newRGB[1], newRGB[2]);
             }
-
-
             
+
 
         }
             
