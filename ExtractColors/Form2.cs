@@ -61,6 +61,7 @@ namespace ExtractColors
 
             }
 
+            IOrderedEnumerable<List<Color>> orderedGroups = groups.OrderBy(x => x.Count);
 
 
         }
